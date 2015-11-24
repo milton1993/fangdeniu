@@ -4,7 +4,7 @@
     <script type="text/javascript" >
         $(document).ready(function() {
             $.post("/test", {}, function(data) {
-                alert(data.data);
+                alert(data.message.split('    ')[0].split(": ")[1]);
             });
         });
     </script>

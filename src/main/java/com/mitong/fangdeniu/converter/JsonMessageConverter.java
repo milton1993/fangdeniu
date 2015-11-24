@@ -34,7 +34,10 @@ public class JsonMessageConverter extends MappingJackson2HttpMessageConverter {
             this.writePrefix(generator, object);
             Class ex = null;
             FilterProvider filters = null;
-            Object value = new ReturnMessage(null, object);
+            Object value = object;
+            if (! (value instanceof ReturnMessage)) {
+                value = new ReturnMessage(null, value);
+            }
             JavaType javaType = null;
             if(object instanceof MappingJacksonValue) {
                 MappingJacksonValue objectWriter = (MappingJacksonValue)object;

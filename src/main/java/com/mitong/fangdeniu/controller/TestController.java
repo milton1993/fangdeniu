@@ -15,6 +15,6 @@ public class TestController {
     @RequestMapping("test")
     @ResponseBody
     public String test() {
-        return "abc";
+        throw new RuntimeException("abc", new NullPointerException("efg"));
     }
 }
