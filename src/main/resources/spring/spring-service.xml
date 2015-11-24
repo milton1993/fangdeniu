@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+    <!-- 引入 properties文件 -->
+    <bean id="propertyHolder" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath*:/config/*.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 引入 dao -->
+    <!--<import resource="classpath:spring/spring-dao.xml"/>-->
+
+    <!--&lt;!&ndash; 引入 邮件配置文件 &ndash;&gt;-->
+    <!--&lt;!&ndash;<import resource="classpath:spring/email.xml"/>&ndash;&gt;-->
+
+
+    <!-- 事务管理器 -->
+    <!--<bean id="txManager"-->
+          <!--class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+
+    <!-- 开启事务注解驱动 -->
+    <!--<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>-->
+    <!--<tx:annotation-driven proxy-target-class="true" transaction-manager="txManager"/>-->
+
+    <!--<context:component-scan base-package="com.qunar.qtown.data.activity.service"/>-->
+    <!--<context:component-scan base-package="com.qunar.qtown.data.course.service"/>-->
+    <!--<context:component-scan base-package="com.qunar.qtown.data.home.service"/>-->
+    <!--<context:component-scan base-package="com.qunar.qtown.data.knowledge.service"/>-->
+    <!--<context:component-scan base-package="com.qunar.qtown.data.project.service"/>-->
+    <!--<context:component-scan base-package="com.qunar.qtown.data.search.service"/>-->
+    <!--<context:component-scan base-package="com.qunar.qtown.data.common.service"/>-->
+
+    <!--<context:component-scan base-package="com.qunar.qtown.data.common.component"/>-->
+    <!--<context:component-scan base-package="com.qunar.qtown.data.home.cache"/>-->
+</beans>
