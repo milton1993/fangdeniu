@@ -1,8 +1,5 @@
 package com.mitong.fangdeniu.entity.pojo;
 
-
-import com.sun.istack.internal.Nullable;
-
 /**
  * @author tong.mi
  * @email tong.mi@qunar.com
@@ -43,13 +40,13 @@ public class ReturnMessage {
         this.data = data;
     }
 
-    public ReturnMessage(int status, @Nullable String message, @Nullable Object data) {
+    public ReturnMessage(int status, String message, Object data) {
         this.status = status;
         this.message = message;
         this.data = data;
     }
 
-    public ReturnMessage(@Nullable String message, Object data) {
+    public ReturnMessage(String message, Object data) {
         this.status = SUCCESS_STATUS;
         this.message = message;
         this.data = data;
