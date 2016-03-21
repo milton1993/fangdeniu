@@ -15,7 +15,7 @@ public class PageQueryParamParser implements Parser<DatabasePageQueryParam, Page
     public DatabasePageQueryParam parse(PageQueryParam pageQueryParam) {
         Preconditions.checkNotNull(pageQueryParam);
         int start = pageQueryParam.getPageSize() * (pageQueryParam.getPageIndex() - 1);
-
-        return null;
+        int limit = pageQueryParam.getPageSize();
+        return new DatabasePageQueryParam(start, limit);
     }
 }

@@ -19,6 +19,8 @@ $(document).ready(function() {
             getIndexFourArticlesByPageIndex(currentPage);
         }
     });
+
+
 });
 
 function getIndexFourArticlesByPageIndex(pageIndex) {
@@ -70,4 +72,20 @@ function addOneArticle(index, articleObj) {
     if (index <= pageSize) {
         $("#article" + index).append('<header><img src="' + articleObj.imagePath + '"><h3><a href="blog-detail.html">' + articleObj.title + '</a></h3> <span class="meta">'+ new Date(articleObj.updateTime).format('yyyy-MM-dd') +', Milton</span> <hr> </header> <div class="body">' + articleObj.abstractContent + '</div> <div class="clearfix"> <a href="blog-detail.html?id=' + articleObj.id + '" class="btn btn-tales-one">阅读全部</a> </div>');
     }
+}
+
+function getTalesList() {
+    $.ajax({
+        type: 'POST',
+        url: '/server/article/talesList',
+        dataType: 'json',
+        contentType: 'application/json',
+        success: function (data) {
+            if (data.status == 0) {
+
+            }
+        },
+        error: function (data) {
+        }
+    });
 }
